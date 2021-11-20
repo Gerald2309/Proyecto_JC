@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   child: CircleAvatar(
                     radius: 40.0,
                     backgroundImage: NetworkImage(
-                        'https://png.pngtree.com/png-clipart/20191121/original/pngtree-vector-plus-icon-png-image_5158226.jpg'),
+                        'https://doprod-statics.s3.amazonaws.com/pictures/logo/3755/large_14ae837c-5afb-453b-bdc3-2ca421680d49.pngs'),
                   ),
                 ),
               ],
