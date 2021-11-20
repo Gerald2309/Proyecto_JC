@@ -42,13 +42,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                _createTable()
+                _createTable(),
               ],
             ),
-          )
+          ),
         ],
       ),
-      bottomNavigationBar: _createBottomNavigationBar(),
+      // bottomNavigationBar: _createBottomNavigationBar(),
     );
   }
 
@@ -62,13 +62,19 @@ class _HomePageState extends State<HomePage> {
 
     final pinkBox = Transform.rotate(
       angle: -pi / 5.0,
-      child: Container(
-        width: 250,
-        height: 250,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            gradient:
-                LinearGradient(colors: [Color(0xffBD6AF7), Color(0xffDDB5F9)])),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Form()));
+        },
+        child: Container(
+          width: 250,
+          height: 250,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              gradient: LinearGradient(
+                  colors: [Color(0xffBD6AF7), Color(0xffDDB5F9)])),
+        ),
       ),
     );
 
@@ -80,6 +86,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /*
   Widget _createBottomNavigationBar() {
     return Theme(
       data: Theme.of(context).copyWith(
@@ -89,15 +96,18 @@ class _HomePageState extends State<HomePage> {
           textTheme: Theme.of(context)
               .textTheme
               .copyWith(caption: TextStyle(color: Colors.white))),
-      child: BottomNavigationBar(items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Second page'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility), label: 'Third page')
-      ]),
+      child: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Second page'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.accessibility), label: 'Third page')
+        ],
+       
+      ),
     );
-  }
+  }*/
 
   _createTable() {
     return Table(
@@ -191,30 +201,52 @@ class _HomePageState extends State<HomePage> {
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-        child: Container(
-          height: 280.0,
-          margin: EdgeInsets.all(15.0),
-          decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CircleAvatar(
-                backgroundImage: image,
-                radius: 25.0,
-
-                /*Icon(
-                Icons.ac_unit_outlined,
-                color: Colors.amber,*/
-              ),
-              Text(text),
-              Text(adress),
-              Text(nacimiento),
-              Text(salario),
-              Text(Ingreso)
-            ],
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Form()));
+          },
+          child: Container(
+            height: 200.0,
+            margin: EdgeInsets.all(15.0),
+            decoration: BoxDecoration(
+                color: color, borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  backgroundImage: image,
+                  radius: 25.0,
+                ),
+                Text(
+                  text,
+                ),
+                Text(adress),
+                Text(nacimiento),
+                Text(salario),
+                Text(Ingreso)
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Form extends StatefulWidget {
+  Form({Key? key}) : super(key: key);
+
+  @override
+  _FormState createState() => _FormState();
+}
+
+class _FormState extends State<Form> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fomulario'),
       ),
     );
   }

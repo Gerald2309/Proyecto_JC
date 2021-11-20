@@ -3,7 +3,12 @@ import 'package:proyecto_final_jovenes_creativos/pages/home_page.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext contex) {
     return MaterialApp(
