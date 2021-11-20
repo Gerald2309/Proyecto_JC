@@ -12,6 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext contex) {
     return MaterialApp(
+        theme: ThemeData(primarySwatch: Colors.deepOrange),
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {'home': (BuildContext context) => HomePage()});
